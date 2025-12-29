@@ -1,0 +1,14 @@
+HIST_STAMPS="mm/dd/yyyy"
+HISTFILE="$HOME/.config/zsh/zsh_history"
+HISTSIZE=110000
+SAVEHIST=210000
+
+setopt extendedhistory
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS

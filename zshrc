@@ -10,10 +10,15 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
-# Автоматичне підключення всіх модулів з conf.d
-if [ -d "$HOME/.config/zsh/conf.d" ]; then
-  for config_file in "$HOME/.config/zsh/conf.d"/*.zsh; do
-    source "$config_file"
+# --- Автоматичне підключення модулів з conf.d у правильному порядку ---
+ZSH_CONF_DIR="$HOME/.config/zsh/conf.d"
+
+if [ -d "$ZSH_CONF_DIR" ]; then
+  # Використовуємо (n) для числового сортування в Zsh
+  for config_file in "$ZSH_CONF_DIR"/*.zsh(n); do
+    if [ -r "$config_file" ]; then
+      source "$config_file"
+    fi
   done
 fi
 

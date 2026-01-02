@@ -1,16 +1,16 @@
-# Шлях до Oh My Zsh
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~  Шлях до Oh My Zsh ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="minimal"
 plugins=(sudo extract)
 
-# Завантаження Oh My Zsh
+#~~~~~~~~~~~~~~~~~~~~~~~~~~ Завантаження Oh My Zsh ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 source $ZSH/oh-my-zsh.sh
 
-# Зовнішні плагіни
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Зовнішні плагіни ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
-# --- Автоматичне підключення модулів з conf.d у правильному порядку ---
+#~~~~~~~~~~~ Автоматичне підключення модулів з conf.d у правильному порядку ~~~~~~~~~
 ZSH_CONF_DIR="$HOME/.config/zsh/conf.d"
 
 if [ -d "$ZSH_CONF_DIR" ]; then
@@ -22,9 +22,18 @@ if [ -d "$ZSH_CONF_DIR" ]; then
   done
 fi
 
-# Аліаси та функції (як і було)
+#~~~~~~~~~~~~~~~~~~~~~ Аліаси та функції (як і було)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [[ -f "$HOME/.config/zsh/aliases.zsh" ]] && source "$HOME/.config/zsh/aliases.zsh"
 [[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
 
-# FZF інтеграція
+#~~~~~~~~~~~~~~~~~  Інтеграція FZF в Fedora Linux та Arch Linux ~~~~~~~~~~~~~~~~~~~~~~
 eval "$(fzf --zsh)"
+
+#~~~~~~~~~~~~~~~~~~~~~~~  Інтеграція FZF в Linux MInt  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if [ -f ~/.fzf/shell/key-bindings.zsh ]; then
+  source ~/.fzf/shell/key-bindings.zsh
+fi
+
+if [ -f ~/.fzf/shell/completion.zsh ]; then
+  source ~/.fzf/shell/completion.zsh
+fi

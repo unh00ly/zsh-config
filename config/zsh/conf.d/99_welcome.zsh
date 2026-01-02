@@ -1,5 +1,7 @@
 HOUR=$(date +%H)
 FULL_DATE=$(date +'%A %d %B %Y %H:%M')
+OS_NAME=$(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)
+IP_LOCAL=$(hostname -I | awk '{print $1}')
 
 # --- Логіка привітання ---
 if (( $HOUR < 6 )); then
@@ -12,12 +14,8 @@ else
     GREETING="Доброго вечора 󰚵 "
 fi
 
-# --- Автоматичне визначення системи ---
-OS_NAME=$(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)
-IP_LOCAL=$(hostname -I | awk '{print $1}')
-
 # --- Виведення ---
-echo "\033[1;33m$GREETING пане Романе!\033[0m"
+echo "\033[1;33m 󰃚  $GREETING пане Романе!\033[0m"
 echo "\033[36m   Дата: $FULL_DATE\033[0m"
 echo "\033[31m---------------------\033[0m \033[34mСистемна Інформація\033[0m \033[31m----------------------\033[0m"
 echo "\033[32m   Дистрибутив :\033[0m \033[33m$OS_NAME\033[0m"

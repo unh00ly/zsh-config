@@ -57,6 +57,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 
+В Linux Mint `fzf` із офіціального репозиторія застарілий, тому потрібно встановитии `fzf` із `git` репозиторія.
+
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
 ## Файлова структура
 
 
